@@ -10,10 +10,10 @@ import { CarserviceService } from '../../service';
 })
 export class MainLayoutComponent {
   constructor(private readonly CarserviceService: CarserviceService) {
-    console.log(this.CarserviceService.getModels().subscribe((data)=>{
+    this.CarserviceService.getModels().subscribe((data)=>{
       console.log(data);
 
-    }));
+    });
 
   }
   get CarImage() {
