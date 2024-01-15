@@ -35,6 +35,8 @@ export class SelectModelComponent {
     // this.modelsObserver = this.Carservice.getModels();
     // this.modelsObserver.subscribe(models => this.models = models);
     this.Carservice.getModels().subscribe((data)=>{
+      console.log(data);
+
       this.moni =data
     })
     this.setSelectedOptions();
