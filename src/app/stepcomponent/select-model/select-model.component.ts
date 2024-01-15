@@ -42,7 +42,14 @@ export class SelectModelComponent {
     })
     this.setSelectedOptions();
   }
+changebutton(){
+  this.Carservice.getModels().subscribe((data)=>{
+    console.log(data);
 
+    this.moni =data
+    this.cdr.markForCheck();
+  })
+}
   modelSelected() {
     this.colorCode = this.selectedModel ? this.selectedModel?.colors[0]?.code : null;
     this.saveSelection();
