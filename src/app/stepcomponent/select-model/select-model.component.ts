@@ -2,12 +2,12 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { CarserviceService } from '../../service';
 import { TeslaModelModel ,ModelSelectionModel} from '../../models';
 import { FormsModule } from '@angular/forms';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-select-model',
   standalone: true,
-  imports: [FormsModule,AsyncPipe,NgIf],
+  imports: [FormsModule,AsyncPipe,NgIf,NgFor],
   templateUrl: './select-model.component.html',
   styleUrl: './select-model.component.scss'
 })
