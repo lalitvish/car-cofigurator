@@ -3,7 +3,7 @@
 <div class="flex">
   <label for="carCode">Select a car code:</label>
   <select id="carCode" [(ngModel)]="modelCode">
-    <option *ngFor="let car of modelsObserver |async" [value]="car.code">{{ car }}</option>
+    <option *ngFor="let car of moni |async" [value]="car.code">{{ car }}</option>
   </select>
 
   <div *ngIf="modelCode">

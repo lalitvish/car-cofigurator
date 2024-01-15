@@ -14,6 +14,7 @@ import { Observable, Subject } from 'rxjs';
 export class SelectModelComponent {
   modelsObserver!: Observable<TeslaModelModel[]>;
   models!: TeslaModelModel[];
+  moni:any;
 
   modelCode: string | null = null;
   colorCode: string | null = null;
@@ -31,8 +32,11 @@ export class SelectModelComponent {
 
     console.log(this.Carservice.getModels());
 
-    this.modelsObserver = this.Carservice.getModels();
-    this.modelsObserver.subscribe(models => this.models = models);
+    // this.modelsObserver = this.Carservice.getModels();
+    // this.modelsObserver.subscribe(models => this.models = models);
+    this.Carservice.getModels().subscribe((data)=>{
+      this.moni =data
+    })
     this.setSelectedOptions();
   }
 
