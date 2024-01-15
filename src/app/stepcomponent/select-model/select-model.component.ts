@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CarserviceService } from '../../service';
 import { TeslaModelModel ,ModelSelectionModel} from '../../models';
 import { FormsModule } from '@angular/forms';
@@ -25,7 +25,7 @@ export class SelectModelComponent {
     return this.models?.find(item => item.code === this.modelCode);
   }
 
-  constructor(private readonly Carservice: CarserviceService) { }
+  constructor(private readonly Carservice: CarserviceService,public cdr:ChangeDetectorRef) { }
 
   ngOnInit() {
     console.log(this.modelsObserver);
@@ -38,6 +38,7 @@ export class SelectModelComponent {
       console.log(data);
 
       this.moni =data
+      this.cdr.markForCheck();
     })
     this.setSelectedOptions();
   }
