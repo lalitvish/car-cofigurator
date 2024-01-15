@@ -1,7 +1,7 @@
-export { CarColorModel } from './car-color.model';
-export { ModelCarModel } from './model-car.model';
+export { ColorModel } from './color.model';
+export { TeslaModelModel } from './tesla-model.model';
 export { ModelSelectionModel } from './model-selection.model';
 
 export { ModelOptionModel } from './model-option.model';
-export { ConfigModel } from './config.model';
+export { OptionConfigModel } from './option-config.model';
 export { ConfigsSelectionModel } from './configs-selection.model';

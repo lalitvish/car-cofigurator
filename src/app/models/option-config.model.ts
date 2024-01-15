@@ -1,4 +1,4 @@
-export class ConfigModel {
+export class OptionConfigModel {
     id!: number;
     description!: string;
     range!: number;

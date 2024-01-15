@@ -1,0 +1,20 @@
+<h2>Step 1: Choose your Model and color</h2>
+
+<div class="flex">
+  <label for="carCode">Select a car code:</label>
+  <select id="carCode" [(ngModel)]="modelCode">
+    <option *ngFor="let car of dataformodel |async" [value]="car.code">{{ car.code }}</option>
+  </select>
+
+  <div *ngIf="modelCode">
+    <label for="carColor">Select a car color:</label>
+    <select id="carColor" [(ngModel)]="colorCode">
+      <option *ngFor="let color of getColorsForSelectedCar()" [value]="color.codecolor">{{ color.description }}</option>
+    </select>
+
+    <div *ngIf="colorCode">
+      <p>Selected Code: {{ modelCode }}</p>
+      <p>Selected Color: {{ colorCode }}</p>
+    </div>
+  </div>
+</div>

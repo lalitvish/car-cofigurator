@@ -1,7 +1,7 @@
-import { ConfigModel } from "./config.model";
+import { OptionConfigModel } from "./option-config.model";
 
 export class ModelOptionModel {
-    configs!: ConfigModel[];
+    configs!: OptionConfigModel[];
     towHitch!: boolean;
     yoke!: boolean;
 }
