@@ -3,13 +3,13 @@
 <div class="flex">
   <label for="carCode">Select a car code:</label>
   <select id="carCode" [(ngModel)]="modelCode">
-    <option *ngFor="let car of dataformodel |async" [value]="car.code">{{ car.code }}</option>
+    <option *ngFor="let car of modelsObserver |async" [value]="car.code">{{ car }}</option>
   </select>
 
   <div *ngIf="modelCode">
     <label for="carColor">Select a car color:</label>
     <select id="carColor" [(ngModel)]="colorCode">
-      <option *ngFor="let color of getColorsForSelectedCar()" [value]="color.codecolor">{{ color.description }}</option>
+      <option *ngFor="let color of getColorsForSelectedCar()" [value]="color">{{ color.description }}</option>
     </select>
 
     <div *ngIf="colorCode">

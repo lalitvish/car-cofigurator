@@ -12,30 +12,27 @@ import { Observable, Subject } from 'rxjs';
   styleUrl: './select-model.component.scss'
 })
 export class SelectModelComponent {
-  // modelsObserver!: Subject<TeslaModelModel[]>;
+  modelsObserver!: Observable<TeslaModelModel[]>;
   models!: TeslaModelModel[];
-  dataformodel!: Observable<TeslaModelModel[]>;
 
   modelCode: string | null = null;
   colorCode: string | null = null;
 
   get selectedModel() {
+    console.log(this.models);
+
     return this.models?.find(item => item.code === this.modelCode);
   }
 
-  constructor(private readonly Carservice: CarserviceService) {
-
-  }
+  constructor(private readonly Carservice: CarserviceService) { }
 
   ngOnInit() {
+    console.log(this.modelsObserver);
 
-   this.Carservice.getModels().subscribe(
-    (data)=>{
-      console.log(data);
-    this.dataformodel.subscribe(datas=>  data)
-    }
-   )
+    console.log(this.Carservice.getModels());
 
+    this.modelsObserver = this.Carservice.getModels();
+    this.modelsObserver.subscribe(models => this.models = models);
     this.setSelectedOptions();
   }
 
@@ -59,7 +56,6 @@ export class SelectModelComponent {
 
   private setSelectedOptions() {
     const selection = this.Carservice.modelSubject.value;
-    console.log(selection);
 
     if (selection) {
       this.modelCode = selection.model.code;
