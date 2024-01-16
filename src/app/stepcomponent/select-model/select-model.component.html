@@ -1,20 +1,27 @@
 <h2>Step 1: Choose your Model and color</h2>
-<button (click)="changebutton()"></button>
 <div class="flex">
-  <label for="carCode">Select a car code:</label>
-  <select id="carCode" [(ngModel)]="modelCode">
-    <option *ngFor="let car of moni " [value]="car.code">{{ car }}</option>
-  </select>
+  <div>
+    <label for="modelSelect">Model:</label>
 
-  <div *ngIf="modelCode">
-    <label for="carColor">Select a car color:</label>
-    <select id="carColor" [(ngModel)]="colorCode">
-      <option *ngFor="let color of moni" [value]="color">{{ color.description }}</option>
+    <select name="modelSelect" id="modelSelect" [(ngModel)]="modelCode"
+    (ngModelChange)="modelSelected()">
+      <option [ngValue]="null" disabled>Choose...</option>
+
+      @for (item of modelsObserver | async; track item.code) {
+        <option [ngValue]="item.code">{{item.description}}</option>
+      }
     </select>
-
-    <div *ngIf="colorCode">
-      <p>Selected Code: {{ modelCode }}</p>
-      <p>Selected Color: {{ colorCode }}</p>
-    </div>
   </div>
+
+  @if (modelCode) {
+    <div>
+      <label for="colorSelect">Color:</label>
+
+      <select name="colorSelect" id="colorSelect" [(ngModel)]="colorCode" (ngModelChange)="saveSelection()">
+        @for (item of selectedModel?.colors; track item.code) {
+          <option [ngValue]="item.code">{{item.description}}</option>
+        }
+      </select>
+    </div>
+  }
 </div>

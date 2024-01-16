@@ -1,6 +1,6 @@
-import { TeslaModelModel } from "./tesla-model.model";
+import { CarModelModel } from "./car-model.model";
 
 export class ModelSelectionModel {
-    model!: TeslaModelModel;
+    model!: CarModelModel;
     colorCode!: string;
 }

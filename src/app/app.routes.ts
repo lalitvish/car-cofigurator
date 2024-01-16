@@ -15,20 +15,20 @@ export const routes: Routes = [
           {
               path: '',
               pathMatch: 'full',
-              redirectTo: 'select'
+              redirectTo: 'selection'
           },
           {
-            path: 'select',
-            component: SelectModelComponent
-        },
-        {
-          path: 'configure',
-          component: ConfigComponent
-      },
-      {
-          path: 'summary',
-          component: SummaryComponent
-      }
+              path: 'selection',
+              component: SelectModelComponent
+          },
+          {
+              path: 'config',
+              component: ConfigComponent
+          },
+          {
+              path: 'summary',
+              component: SummaryComponent
+          }
       ]
   },
   {

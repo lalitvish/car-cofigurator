@@ -1,6 +1,6 @@
 import { ColorModel } from "./color.model";
 
-export class TeslaModelModel {
+export class CarModelModel {
     code!: string;
     description!: string;
     colors!: ColorModel[];
